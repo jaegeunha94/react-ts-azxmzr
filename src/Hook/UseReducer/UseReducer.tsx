@@ -1,4 +1,6 @@
 import * as React from 'react';
+import Click from '../../Hook/UseReducer/Click';
+import { AppContext } from './AppContext';
 
 export default function UseReducer() {
   const [state, dispatch] = React.useReducer(reducer, 0);
@@ -9,9 +11,11 @@ export default function UseReducer() {
     }
   }
 
-  function handleIncreseNumber() {
-    dispatch('up');
-  }
-
-  return <button onClick={handleIncreseNumber}>{state}</button>;
+  return (
+    <AppContext.Provider value={dispatch}>
+      <Click />
+      <br />
+      {state}
+    </AppContext.Provider>
+  );
 }
