@@ -1,13 +1,16 @@
 import * as React from 'react';
-import ReactLazy from '../../Performance/ReactLazy/ReactLazy';
-import { Link, useNavigate } from 'react-router-dom';
 
 export default function ReactLazyMain() {
-  function handleImportScript() {
-    React.lazy(() => import('../../Performance/ReactLazy/ReactLazy'));
-  }
+  const NewPopup = React.lazy(() =>
+    import('../../Performance/ReactLazy/ReactLazy')
+  );
+  const loading = () => <p>Loading</p>;
 
-  return <button onClick={handleImportScript}>버튼</button>;
+  return (
+    <React.Suspense fallback={loading()}>
+      <NewPopup />
+    </React.Suspense>
+  );
 }
 
 // export default function ReactLazyMain() {
