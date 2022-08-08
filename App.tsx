@@ -1,13 +1,13 @@
 import * as React from 'react';
 import './style.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import ReduxTooolkitMain from './src/Context/ReduxToolkit/ReduxToolkitMain';
+import ReduxCounter from './src/Context/Redux/ReduxCounter';
 
 export default function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<ReduxTooolkitMain />} />
+        <Route path="/" element={<ReduxCounter />} />
       </Routes>
     </Router>
   );
