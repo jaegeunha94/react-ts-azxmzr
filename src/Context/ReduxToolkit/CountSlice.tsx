@@ -1,21 +1,21 @@
 // src/redux/modules/counterSlice.js
 
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   number: 0,
 };
 
 const counterSlice = createSlice({
-  name: "counter",
+  name: 'counter',
   initialState,
   reducers: {
     addNumber: (state, action) => {
-      state.number = state.number + action.payload;
+      state.number += action.payload.number;
     },
 
     minusNumber: (state, action) => {
-      state.number = state.number - action.payload;
+      state.number += action.payload.number;
     },
   },
 });
@@ -24,4 +24,3 @@ const counterSlice = createSlice({
 export const { addNumber, minusNumber } = counterSlice.actions;
 // reducer 는 configStore에 등록하기 위해 export default 합니다.
 export default counterSlice.reducer;
-🙌
